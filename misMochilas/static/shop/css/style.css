@@ -1,0 +1,237 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #343a40; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 0; /* Espaciado interior superior e inferior */
+}
+
+.topbar {
+    background-color: #212529; /* Color de fondo de la barra superior */
+}
+
+.topbar ul.nav {
+    list-style-type: none; /* Quita los estilos de la lista */
+}
+
+.topbar ul.nav li {
+    display: inline; /* Muestra los elementos de la lista en línea */
+    margin-right: 10px; /* Margen derecho entre elementos */
+}
+
+.navegacion {
+    background-color: #343a40; /* Color de fondo de la navegación principal */
+    padding: 10px 0; /* Espaciado interior superior e inferior */
+}
+
+.navegacion .logo p {
+    font-size: 1.5rem; /* Tamaño de fuente del logo */
+    margin-bottom: 0; /* Elimina el margen inferior */
+}
+
+.navegacion ul.nav {
+    list-style-type: none; /* Quita los estilos de la lista */
+}
+
+.navegacion ul.nav li {
+    display: inline-block; /* Muestra los elementos de la lista en línea */
+    margin-right: 20px; /* Margen derecho entre elementos */
+}
+
+.navegacion ul.nav li a {
+    color: #fff; /* Color del texto de los enlaces */
+    text-decoration: none; /* Quita la subrayado de los enlaces */
+    transition: color 0.3s; /* Transición suave del color del texto */
+}
+
+.navegacion ul.nav li a:hover {
+    color: #ffc107; /* Color del texto al pasar el ratón */
+}
+
+/* Estilos para el contenido principal */
+main {
+    padding: 20px 0; /* Espaciado interior superior e inferior */
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #212529; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 0; /* Espaciado interior superior e inferior */
+    text-align: center; /* Alineación centrada del texto */
+}
+
+
+/* Estilos para el contenedor principal */
+.servicios-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilos para cada servicio individual */
+.servicio {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.servicio h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.servicio p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Estilos para la sección de filtros */
+.filtros {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filtros label {
+    font-weight: bold;
+}
+
+.filtros input,
+.filtros select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Estilos para el botón de búsqueda */
+.btn-buscar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-buscar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el mensaje de resultados vacíos */
+.resultados-vacios {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    color: #999;
+}
+
+/* Estilos para el formulario */
+.formulario-consulta {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para las etiquetas de los campos */
+.formulario-consulta label {
+    font-weight: bold;
+}
+
+/* Estilo para los campos de entrada */
+.formulario-consulta input[type=text],
+.formulario-consulta input[type=number],
+.formulario-consulta select,
+.formulario-consulta textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo específico para las áreas de texto (descripción y requisitos) */
+.formulario-consulta textarea {
+    height: 120px; /* Ajusta la altura según tu diseño */
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilo para el botón de búsqueda en el formulario */
+.formulario-consulta button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilo para mensajes de error en el formulario */
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+/* Estilizando el encabezado para destacar "DiegoMochilas Shop" */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo p {
+    font-size: 2rem;
+    color: #4CAF50; /* Cambia el color según tus preferencias */
+    font-weight: 700;
+  }
+  
+  .logo span {
+    color: #FF4081; /* Cambia el color según tus preferencias */
+    font-weight: 800;
+  }
+  
+  /* Asegurándonos de que todas las imágenes de las mochilas tengan la misma altura y ancho */
+  .card img {
+    height: 300px; /* Puedes ajustar la altura según tus necesidades */
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Ajuste para la navegación */
+  .navegacion .nav {
+    margin-top: 10px;
+  }
+  
+  .navegacion .nav li a {
+    color: #ffffff; /* Color del texto de navegación */
+  }
+  
+  .navegacion {
+    text-align: center;
+  }
+  

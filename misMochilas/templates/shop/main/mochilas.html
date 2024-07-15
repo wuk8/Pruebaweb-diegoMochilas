@@ -1,0 +1,58 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Lista de Mochilas Vendidas{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4 text-white">Lista de mochilas vendidas</h1>
+
+    <div class="row mt-3">
+        {% for cuenta in mochilas_disponibles %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if cuenta.image %}
+                <img src="{{ cuenta.image.url }}" alt="{{ cuenta.nombre_servicio }}" class="card-img-top">
+                {% else %}
+                <img src="{% static 'shop/img/imagen3.jpg' %}" alt="{{ cuenta.nombre_servicio }}" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ cuenta.nombre_servicio }}</h5>
+                    <p class="card-text">{{ cuenta.descripcion }}</p>
+                    <p class="card-text">Costo: ${{ cuenta.costo }}</p>
+                    <p class="card-text">Duración: {{ cuenta.duracion }}</p>
+                    <p class="card-text">Requisitos: {{ cuenta.requisitos }}</p>
+                    {% if cuenta.disponibilidad %}
+                    <span class="badge rounded-pill bg-success">Disponible</span>
+                    {% else %}
+                    <span class="badge rounded-pill bg-danger">No Disponible</span>
+                    {% endif %}
+                    <button type="button" class="btn btn-primary btn-add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{ forloop.counter }}" data-product-id="{{ cuenta.id }}">Comprar</button>
+                </div>
+
+                <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel{{ forloop.counter }}">{{ cuenta.nombre_servicio }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Cuántas mochilas deseas comprar?</p>
+                                <input type="number" name="cantidad" class="form-control" id="cantidad{{ forloop.counter }}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary btn-confirm-purchase" data-product-id="{{ cuenta.id }}">Agregar al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'shop/js/comprar.js' %}"></script>
+{% endblock %}

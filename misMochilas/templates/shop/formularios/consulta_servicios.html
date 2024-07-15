@@ -1,0 +1,63 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="servicios-container">
+    <h2>Consulta de Servicios</h2>
+    <div class="filtros">
+        <form method="GET" class="formulario-consulta">
+            
+            <div class="mb-3">
+                <label for="id_nombre_servicio">Nombre del Servicio:</label>
+                {{ form.nombre_servicio }}
+            </div>
+            <div class="mb-3">
+                <label for="id_descripcion">Descripción:</label>
+                {{ form.descripcion }}
+            </div>
+            <div class="mb-3">
+                <label for="id_costo_range">Rango de Costo:</label>
+                <select name="costo_range" id="id_costo_range">
+                    <option value="0-9990">Filtros por valor</option>
+                    <option value="9990-29990">9990 CLP - 29990 CLP (Más bajos)</option>
+                    <option value="29990-59990">29990 CLP - 59990 CLP (Más Rentables)</option>
+                    <option value="59990-99990">59990 CLP - 99990 CLP (Lo Mejor de lo Mejor)</option>
+                    <option value="99990-">Más de 99990 CLP(Top Gama)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="id_duracion">Duración (años):</label>
+                {{ form.duracion }}
+            </div>
+            <div class="mb-3">
+                <label for="id_requisitos">Requisitos:</label>
+                {{ form.requisitos }}
+            </div>
+            <div class="mb-3">
+                <label for="id_disponibilidad">Disponibilidad:</label>
+                {{ form.disponibilidad }}
+            </div>
+            <button type="submit" class="btn-buscar">Buscar</button>
+        </form>
+    </div>
+
+    
+    {% if servicios %}
+        <div class="resultados">
+            <h3>Resultados</h3>
+            {% for servicio in servicios %}
+                <div class="servicio">
+                    <h3>{{ servicio.nombre_servicio }}</h3>
+                    <p><strong>Descripción:</strong> {{ servicio.descripcion }}</p>
+                    <p><strong>Costo:</strong> {{ servicio.costo|stringformat:"f" }} CLP</p>
+                    <p><strong>Duración:</strong> {{ servicio.duracion }} años</p>
+                    <p><strong>Requisitos:</strong> {{ servicio.requisitos }}</p>
+                    <p><strong>Disponibilidad:</strong> {% if servicio.disponibilidad %}Disponible{% else %}No disponible{% endif %}</p>
+                </div>
+            {% empty %}
+                <p class="resultados-vacios">No se encontraron servicios que coincidan con los criterios de búsqueda.</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

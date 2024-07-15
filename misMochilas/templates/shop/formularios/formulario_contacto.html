@@ -1,0 +1,67 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Formulario de Contacto - DiegoMochilas{% endblock %}
+
+{% block content %}
+<section>
+  <h1>Formulario de Contacto</h1>
+  <form id="formularioContacto" method="post" action="{% url 'guardar_contacto' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="rut" class="form-label">RUT:</label>
+      <input type="text" class="form-control" id="rut" name="rut" required>
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono:</label>
+      <input type="tel" class="form-control" id="telefono" name="telefono" required>
+    </div>
+    <div class="mb-3">
+      <label for="direccion" class="form-label">Dirección:</label>
+      <input type="text" class="form-control" id="direccion" name="direccion" required>
+    </div>
+    <div class="mb-3">
+      <label for="comuna" class="form-label">Comuna:</label>
+      <select class="form-select" id="comuna" name="comuna" required>
+        <option value="">Seleccionar Comuna</option>
+        <option value="Puente Alto">Puento Alto</option>
+        <option value="Pirque">Pirque</option>
+        <option value="San Bernardo">San Bernardo</option>
+        <option value="La Pintana">La Pintana</option>
+        <option value="La Florida">La Florida</option>
+        
+        {% for comuna in comunas %}
+          <option value="{{ comuna.id }}">{{ comuna.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="profesion" class="form-label">Profesión:</label>
+      <input type="text" class="form-control" id="profesion" name="profesion" required>
+    </div>
+    <div class="mb-3">
+      <label for="sexo" class="form-label">Sexo:</label>
+      <select class="form-select" id="sexo" name="sexo" required>
+        <option value="">Seleccionar Sexo</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="ocupacion" class="form-label">Ocupación:</label>
+      <input type="text" class="form-control" id="ocupacion" name="ocupacion" required>
+    </div>
+    <div class="mb-3">
+      <label for="puesto" class="form-label">Puesto en la Empresa:</label>
+      <input type="text" class="form-control" id="puesto" name="puesto" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</section>
+
+<script src="{% static 'shop/js/scripts.js' %}"></script>
+{% endblock %}
